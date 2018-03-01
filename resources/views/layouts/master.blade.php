@@ -112,7 +112,7 @@
                 <li class="active">
                     <a href="index-2.html"><i class="fa fa-th-large"></i> <span class="nav-label">Institute</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="{{ URL::route('institute.show') }}">Show all Institutes</a></li>
+                        <li><a href="{{ URL::route('InstituteController.viewAllBanks') }}">Show all Institutes</a></li>
                         <li><a href="{{ URL::route('institute.create') }}">Create new Institute</a></li>
                     </ul>
                 </li>

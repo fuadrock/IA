@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-    <div class="container">
+    <div class="wrapper wrapper-content animated ">
         <hr>
         <div class="row">
             <div class="col-lg-11">
@@ -148,7 +148,7 @@
                                         </div>
                                     </div>
                                     <div class="ibox-content">
-                                        <form id="tdr_form" method="get" class="form-horizontal" action="{{route('tDRInfo.store')}}">
+                                        <form id="tdr_form" method="post" class="form-horizontal" action="{{route('tDRInfo.store')}}">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -157,7 +157,7 @@
                                                         <div class="col-sm-8">
                                                             <div class="input-group m-b">
                                                                 <span class="input-group-addon">$</span>
-                                                                <input class="form-control" name="deposit_fund" type="text">
+                                                                <input class="form-control" name="deposit_fund" type="number" required>
                                                                 <span class="input-group-addon">( Tk. In Crore )</span>
                                                             </div>
                                                         </div>
@@ -167,7 +167,7 @@
                                                         <div class="col-sm-8">
                                                             <div class="input-group m-b">
                                                                 <span class="input-group-addon">$</span>
-                                                                <input class="form-control" name="loan_fund" type="text">
+                                                                <input class="form-control" name="loan_fund" type="number" required>
                                                                 <span class="input-group-addon">( Tk. In Crore )</span>
                                                             </div>
                                                         </div>
@@ -177,7 +177,7 @@
                                                         <div class="col-sm-8">
                                                             <div class="input-group m-b">
                                                                 <span class="input-group-addon">$</span>
-                                                                <input class="form-control" name="authorised_capital" type="text">
+                                                                <input class="form-control" name="authorised_capital" type="number" required>
                                                                 <span class="input-group-addon">( Tk. In Crore )</span>
                                                             </div>
                                                         </div>
@@ -187,7 +187,7 @@
                                                         <div class="col-sm-8">
                                                             <div class="input-group m-b">
                                                                 <span class="input-group-addon">$</span>
-                                                                <input name="paid_adequacy" class="form-control" type="text">
+                                                                <input name="paid_adequacy" class="form-control"  type="number" required>
                                                                 <span class="input-group-addon">( Tk. In Crore )</span>
                                                             </div>
                                                         </div>
@@ -198,7 +198,7 @@
                                                     <div class="form-group"><label class="col-sm-5 control-label">NonPerforming Loan Ratio </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group m-b">
-                                                                <input name="nonperforming_loan_ratio" class="form-control" type="text">
+                                                                <input name="nonperforming_loan_ratio" class="form-control"  type="number" required>
                                                                 <span class="input-group-addon">( % )</span>
                                                             </div>
                                                         </div>
@@ -207,7 +207,7 @@
                                                     <div class="form-group"><label class="col-sm-5 control-label">Credit Deposite Ratio </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group m-b">
-                                                                <input name="credit_deposit_ratio" class="form-control" type="text">
+                                                                <input name="credit_deposit_ratio" class="form-control"  type="number" required>
                                                                 <span class="input-group-addon">( % )</span>
                                                             </div>
                                                         </div>
@@ -216,7 +216,7 @@
                                                     <div class="form-group"><label class="col-sm-5 control-label">Current Ratio </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group m-b">
-                                                                <input class="form-control" name="current_ratio" type="text">
+                                                                <input class="form-control" name="current_ratio"  type="number" required>
                                                                 <span class="input-group-addon">( % )</span>
                                                             </div>
                                                         </div>
@@ -225,7 +225,7 @@
                                                     <div class="form-group"><label class="col-sm-5 control-label">Capital Adequacy Ratio</label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group m-b">
-                                                                <input class="form-control" name="capital_adequacy_ratio" type="text">
+                                                                <input class="form-control" name="capital_adequacy_ratio"  type="number" required>
                                                                 <span class="input-group-addon">( % )</span>
                                                             </div>
                                                         </div>
@@ -234,7 +234,7 @@
                                                     <div class="form-group"><label class="col-sm-5 control-label">Return Of Equity </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group m-b">
-                                                                <input class="form-control" name="return_of_equity" type="text">
+                                                                <input class="form-control" name="return_of_equity"  type="number" required>
                                                                 <span class="input-group-addon">( % )</span>
                                                             </div>
                                                         </div>
@@ -269,19 +269,19 @@
                                             {{ csrf_field() }}
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">3-Month Rate</label>
-                                                <div class="col-sm-8"><input name="three_month_rate" class="form-control" type="number"></div>
+                                                <div class="col-sm-8"><input name="three_month_rate" class="form-control" type="number" required></div>
                                             </div>
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">6-Month Rate</label>
-                                                <div class="col-sm-8"><input name="six_month_rate" class="form-control" type="number"></div>
+                                                <div class="col-sm-8"><input name="six_month_rate" class="form-control" type="number" required></div>
                                             </div>
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">12-Month Rate</label>
-                                                <div class="col-sm-8"><input name="twelve_month_rate" class="form-control" type="number"></div>
+                                                <div class="col-sm-8"><input name="twelve_month_rate" class="form-control" type="number" required></div>
                                             </div>
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">Double Money Rate</label>
-                                                <div class="col-sm-8"><input name="double_money_rate" class="form-control" type="number"></div>
+                                                <div class="col-sm-8"><input name="double_money_rate" class="form-control" type="number" required></div>
                                             </div>
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group">
@@ -320,7 +320,7 @@
                                             </div>
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">Rating Year</label>
-                                                <div class="col-sm-8"><input name="rating_year" class="form-control" type="text" required minlength="4"></div>
+                                                <div class="col-sm-8"><input name="rating_year" class="form-control" type="number" required minlength="4"></div>
                                             </div>
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">Short Term Rating</label>
@@ -354,7 +354,7 @@
                                         </div>
                                     </div>
                                     <div class="ibox-content">
-                                        <form method="post" class="form-horizontal" action="{{route('directorInfo.store')}}">
+                                        <form enctype="multipart/form-data"  method="post" class="form-horizontal" action="{{route('directorInfo.store')}}">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <div class="col-lg-6">

@@ -8,28 +8,27 @@ class depositeInfoController extends Controller
 {
    public function store(Request $request)
    {
-       dd($request->all());
+     //  dd($request->all());
 
-//       $validatedData = $request->validate([
-//           'name' => 'required|unique:institutes|max:255',
-//           'founding_year' => 'required',
-//           'type' => 'required',
-//           'core_values' => 'required',
-//           'mission' => 'required',
-//           'description' => 'required',
-//       ]);
-//       $institute= new Institute([
-//               'name' => $request->input('name'),
-//               'founding_year' => $request->input('founding_year'),
-//               'type' => $request->input('type'),
-//               'core_values' => $request->input('core_values'),
-//               'mission' => $request->input('mission'),
-//               'description' => $request->input('description')
-//           ]
-//       );
-//       $institute->save();
+       $validatedData = $request->validate([
+           'three_month_rate' => 'required',
+           'six_month_rate' => 'required',
+           'twelve_month_rate' => 'required',
+           'double_money_rate' => 'required',
+       ]);
+       $instituteId= $request->session()->get('instituteID');
 
-       return redirect('institute.show')->with('status','Institute added');
+       $institute= new DepositRate([
+               'institute_id' => $instituteId,
+               '3-month_rate' => $request->input('three_month_rate'),
+               '6-month_rate' => $request->input('six_month_rate'),
+               '12-month_rate' => $request->input('twelve_month_rate'),
+               'double-money_rate' => $request->input('double_money_rate')
+           ]
+       );
+       $institute->save();
+
+       return back()->with('status','Deposit information added');
 
    }
 }

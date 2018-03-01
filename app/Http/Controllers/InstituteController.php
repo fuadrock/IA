@@ -42,8 +42,9 @@ class InstituteController extends Controller
        if($institute->save())
        {
 
-           $instituteID = $institute->id;
-           session(['instituteID' => $instituteID]);
+            $instituteID = $institute->institute_id;
+            $request->session()->put('instituteID',$instituteID);
+         //  session(['instituteID' => $instituteID]);
            return back()->with('status','Institute added');
        }
        else
@@ -54,11 +55,17 @@ class InstituteController extends Controller
    public function show()
    {
        $institute=Institute::all();
+
        return view('institute.show',compact('institute'));
 
    }
 
+    public function viewAllBanks()
+    {
+        $institutes=Institute::all();
+        return view('institute.showAllBanks',compact('institutes'));
 
+    }
 
 
 }
